@@ -23,8 +23,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: ['~/plugins/vue-agile'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,12 +43,12 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
     theme: {
-      dark: true,
+      light: true,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+        light: {
+          primary: '#002b7f',
+          accent:  '#fcd116',
+          secondary: '#ce1126',
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
@@ -61,5 +60,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vue-agile']
   }
 }

@@ -44,8 +44,7 @@
 </template>
 
 <script>
-  import listdrawer from '@/components/navs/listdrawer';
-import Listdrawer from './listdrawer.vue';
+  import Listdrawer from './listdrawer.vue';
 
   export default {
     components: {

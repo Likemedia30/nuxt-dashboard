@@ -33,7 +33,7 @@
 <script>
 
 export default {
-      name: "listdra  ",
+      name: "listdrawer",
       data: () => ({
       items: [
         { title: 'Click Me' },
