@@ -74,7 +74,7 @@ export default {
     }
 
     .agile__actions {
-      margin-top: 20px
+      margin-top: 20px;
     }
 
 
@@ -100,8 +100,7 @@ export default {
       }
     } 
 			
-
-		.agile__dot--current:hover button {
+    .agile__dot--current button {
       background-color:  rgb(36, 35, 35)
     }
 	

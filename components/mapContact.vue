@@ -4,17 +4,16 @@
       <div class="row">
         <div class="col-lg-5 col-md-6 col-12">
           <v-card class="hours-plan">
-            <h5>Working Hours</h5>
-            <p>Check out Montan Dentist’s Office hours to plan your visit.</p>
+            <h5>Zile lucrătoare</h5>
             <ul>
-              <li><span>Monday</span><span>8AM-9PM</span></li>
-              <li><span>Tuesday</span><span>8AM-9PM</span></li>
-              <li><span>Wednesday</span><span>9AM-6:30PM</span></li>
-              <li><span>Thursday</span><span>8AM-9PM</span></li>
-              <li><span>Friday</span><span>8AM-9PM</span></li>
-              <li><span>Saturday-Sunday</span><span>Closed</span></li>
+              <li><span>Luni</span><span>8:00-18:00</span></li>
+              <li><span>Marți</span><span>8:00-18:00</span></li>
+              <li><span>Miercuri</span><span>9:00-18:00</span></li>
+              <li><span>Joi</span><span>8:00-18:00</span></li>
+              <li><span>Vineri</span><span>8:00-18:00</span></li>
+              <li><span>Sâmbătă-Duminică</span><span>Liber</span></li>
             </ul>
-            <h5>Need Flexible Time?</h5>
+            <h5>Dorești programare?</h5>
             <v-dialog
               v-model="dialog"
               max-width="600px"

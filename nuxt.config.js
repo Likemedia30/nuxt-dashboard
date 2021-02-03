@@ -46,9 +46,9 @@ export default {
       light: true,
       themes: {
         light: {
-          primary: '#002b7f',
-          accent:  '#fcd116',
-          secondary: '#ce1126',
+          primary: '#002b7f', //blue
+          accent:  '#fcd116', //yellow
+          secondary: '#ce1126', //red
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,

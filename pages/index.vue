@@ -128,6 +128,14 @@
                     <v-icon left>mdi-phone</v-icon>
                     Sună
                   </v-btn>
+
+                  <v-btn
+                    color="info"
+                  >
+                    <v-icon left>mdi-chat</v-icon>
+                    Chat
+                  </v-btn>
+                  
                 </v-card-actions>
               </v-card>
             </v-col>
