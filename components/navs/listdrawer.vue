@@ -1,29 +1,53 @@
 <template>
   <v-list
       nav
+      light
     >
     <v-list-item-group
-        active-class=" text--accent-4"
+        active-class="text--accent-4"
       >
         <v-list-item-group>
-          <v-list-item link>
-              <a href="tel:+37307966626">
-                <v-icon>mdi-phone</v-icon>
-                079 66626
-              </a>
+          <v-list-item href="tel:+37378563423">
+              <v-list-item-icon>
+                <v-icon color="primary">mdi-phone</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>+37378563423</v-list-item-title>
+          </v-list-item>
+          <v-list-item href="mailto:info@likemedia.com">
+              <v-list-item-icon>
+                <v-icon color="primary">mdi-email</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title color="primary">
+                info@likemedia.com
+              </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
-
+        <v-list-item-group class="d-flex justify-space-around my-7">
+          <v-btn color="secondary">
+            <v-icon>mdi-instagram</v-icon>
+          </v-btn>
+          <v-btn color="secondary" ma-0>
+            <v-icon>mdi-email</v-icon>
+          </v-btn>
+          <v-btn color="secondary" ma-0>
+            <v-icon>mdi-facebook</v-icon>
+          </v-btn>
+        </v-list-item-group>
         <v-list-item>
-          <v-list-item-title>Bar</v-list-item-title>
+          <v-list-item-title>Acasă</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title>Servicii</v-list-item-title>
         </v-list-item>
 
         <v-list-item>
-          <v-list-item-title>Fizz</v-list-item-title>
+          <v-list-item-title>Despre Noi</v-list-item-title>
         </v-list-item>
-
         <v-list-item>
-          <v-list-item-title>Buzz</v-list-item-title>
+          <v-list-item-title>Experții Noștri</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title>Contacte</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>
@@ -33,14 +57,9 @@
 <script>
 
 export default {
-      name: "listdrawer",
-      data: () => ({
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-      ],
+    name: "listdrawer",
+    data: () => ({
+      submenu: false
     }),
 }
 </script>

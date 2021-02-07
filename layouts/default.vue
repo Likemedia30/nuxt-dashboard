@@ -1,10 +1,8 @@
 <template>
-  <div id="root">
+  <v-app id="root">
     <NavComponent></NavComponent>
-    <v-app>
       <nuxt />
-    </v-app>
-  </div>
+  </v-app>
 </template>
 
 
