@@ -14,84 +14,15 @@
               <li><span>Sâmbătă-Duminică</span><span>Liber</span></li>
             </ul>
             <h5>Dorești programare?</h5>
-            <v-dialog
-              v-model="dialog"
-              max-width="600px"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn
+              <v-btn
                   color="secondary"
                   dark
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  <v-icon left>mdi-book-open</v-icon>
-                  Programează-te
-                </v-btn>
-              </template>
-              <v-card>
-                <v-card-title>
-                  <span class="headline">Programează-te</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col
-                        cols="12"
-                        sm="12"
-                        md="12"
-                      >
-                        <v-text-field
-                          label="Nume*"
-                          required
-                          hint="Introduceți numele"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                        cols="12"
-                        sm="12"
-                        md="12"
-                      >
-                        <v-text-field
-                          label="Email*"
-                          required
-                          hint="Introduceți email"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col
-                        cols="12"
-                        sm="12"
-                        md="12"
-                      >
-                        <v-text-field
-                          label="Numărul de telefon*"
-                          required
-                          hint="Introduceți un număr de telefon valid"
-                        ></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                  <small>*indicates required field</small>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                    color="primary"
-                    text
-                    @click="dialog = false"
-                  >
-                    Close
-                  </v-btn>
-                  <v-btn
-                    color="primary"
-                    text
-                    @click="dialog = false"
-                  >
-                    Send
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
+                  @click="$nuxt.$emit('open-appointment-form')"
+              >
+              <v-icon left>mdi-book-open</v-icon>
+                Programează-te
+              </v-btn>
+              <appointment-form></appointment-form>
           </v-card>
         </div>
       </div>
@@ -125,13 +56,16 @@
   </section>
 </template>
 <script>
+import appointmentForm from './forms/appointmentForm.vue'
 export default {
+  components: { appointmentForm },
   name: "MapContact",
   data: () => (
     {
       dialog: false
     }
-  )
+  ),
+
 }
 </script>
 

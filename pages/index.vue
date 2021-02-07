@@ -48,6 +48,7 @@
                     class="ma-2 btn-yell"
                     x-large
                     color="secondary"
+                    @click="$nuxt.$emit('open-appointment-form')"
                   > 
                     <v-icon left>mdi-comment-bookmark</v-icon>
                     Consultație gratuită
@@ -158,6 +159,7 @@
                     class="ma-2 btn-yell"
                     x-large
                     color="secondary"
+                    @click="$nuxt.$emit('open-appointment-form')"
                   > 
                     <v-icon left>mdi-comment-bookmark</v-icon>
                     Consultație gratuită
