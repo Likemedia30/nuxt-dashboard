@@ -5,10 +5,9 @@
       fixed
       color="primary"
       elevate-on-scroll
-      scroll-target="#scrolling-techniques-7"
       dark
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
 
       <v-navigation-drawer
         class="navdrawer pt-13"
@@ -17,63 +16,35 @@
         left
         temporary
         light
-        
+        stateless
+        max-height="100vh"
       >
         <div class="close">
           <v-icon @click="drawer = false">mdi-close</v-icon>
         </div>
+        <contacts></contacts>
         <v-list
           nav
           light
         >
-        <v-list-item-group
-            active-class="text--accent-4"
-          >
-            <v-list-item-group>
-              <v-list-item href="tel:+37378563423">
-                  <v-list-item-icon>
-                    <v-icon color="primary">mdi-phone</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-title>+37378563423</v-list-item-title>
-              </v-list-item>
-              <v-list-item href="mailto:info@likemedia.com">
-                  <v-list-item-icon>
-                    <v-icon color="primary">mdi-email</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-title color="primary">
-                    info@likemedia.com
-                  </v-list-item-title>
-              </v-list-item>
-            </v-list-item-group>
-            <v-list-item-group class="d-flex justify-space-around my-7">
-              <v-btn color="secondary">
-                <v-icon>mdi-instagram</v-icon>
-              </v-btn>
-              <v-btn color="secondary" ma-0>
-                <v-icon>mdi-email</v-icon>
-              </v-btn>
-              <v-btn color="secondary" ma-0>
-                <v-icon>mdi-facebook</v-icon>
-              </v-btn>
-            </v-list-item-group>
-            <v-list-item>
-              <v-list-item-title>Acasă</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title @click="services = true">Servicii</v-list-item-title>
-            </v-list-item>
+          <v-list-item-group>
+            <v-list-item v-for="(item, i) in drawerItems" :key="i" nuxt :to="item.href">
 
-            <v-list-item>
-              <v-list-item-title>Despre Noi</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>Experții Noștri</v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>Contacte</v-list-item-title>
+              <v-list-item-title v-if="item.action" v-text="item.title" @click.stop="openServices"></v-list-item-title>
+              <v-list-item-title v-else v-text="item.title"></v-list-item-title>
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
             </v-list-item>
           </v-list-item-group>
         </v-list>
+        <template v-slot:append>
+          <div class="pa-2 mb-4">
+            <v-btn color="secondary" outlined block>
+              Cabinet
+            </v-btn>
+          </div>
+        </template>
       </v-navigation-drawer>
       <v-navigation-drawer
         class="navdrawer pt-13"
@@ -82,19 +53,38 @@
         left
         temporary
         light
-        v-on:click.native="testFunction"
+        stateless
       >
         <div class="close">
-          <v-icon @click="closeServices">mdi-close</v-icon>
+          <v-icon @click="closeServices">mdi-arrow-left-circle</v-icon>
         </div>
-        <v-list>
-          <v-list-item>sadfasfd</v-list-item>
-          <v-list-item>sadfasfd</v-list-item>
-          <v-list-item>sadfasfd</v-list-item>
-          <v-list-item>sadfasfd</v-list-item>
+        <v-list nav light>
+          <v-list-item-group>
+            <v-list-item v-for="service in servicesItems" :key="service.identifier" @click.stop="openSubservices(service.identifier)">
+              <v-list-item-title v-text="service.title"></v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
-      
+      <v-navigation-drawer
+        class="navdrawer pt-13"
+        v-model="subservices"
+        absolute
+        left
+        temporary
+        light
+      >
+        <div class="close">
+          <v-icon @click="closeSubservices">mdi-arrow-left-circle</v-icon>
+        </div>
+        <v-list nav light>
+          <v-list-item-group>
+            <v-list-item v-for="(service, i) in subserviceIdentifier" :key="i">
+              <v-list-item-title v-text="service"></v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
       <v-spacer></v-spacer>
       <v-toolbar-title>
         <img class="logo" src="@/static/logo.svg" alt="">
@@ -110,29 +100,122 @@
 </template>
 
 <script>
-  import Listdrawer from './listdrawer.vue';
+  import Contacts from './contacts';
 
   export default {
     components: {
-        Listdrawer
+        Contacts
     },
     data: () => ({
       drawer: false,
       services: false,
-      group: null
+      subservices: false,
+      subserviceIdentifier: [ ],
+      group: null,
+      drawerItems: [
+        {
+          title: "Acasă",
+          icon: "",
+          action: null,
+          href: '/'
+        },
+        {
+          title: "Servicii",
+          icon: "mdi-arrow-right-drop-circle-outline",
+          action: true
+        },
+        {
+          title: "Despre Noi",
+          icon: "",
+          action: null,
+          href: "/about"
+        },
+        {
+          title: "Experții Noștri",
+          icon: "",
+          action: null,
+          href: "/experts"
+        }
+      ],
+      servicesItems: [
+        {
+          
+          title: "Cetățenie Română",
+          identifier: "cetro",
+          subservices: [
+            "Depunerea actelor pentru redobândirea cetățeniei",
+            "Depunerea Jurămîntului",
+            "Obținerea CI",
+            "Obținerea Pașaport Străin Ro",
+            "Alocații pentru copiii cu cetățenie Română",
+            "Transcriirea unui certificat de naștere românesc / certificat de căsătorie",
+            "Aplicarea mențiunii de încetare a căsătoriei sau de deces în România.",
+            "Rectificarea actelor de stare civilă românești",
+            "Reîntregirea familieii",
+            "Înregistrarea căsătorii în străinătate pentru cetățenii moldoveni",
+            "Înregistrarea căsătorii în străinătate pentru cetățenii români",
+            "Echivalarea diplomei",
+          ]
+        },
+        {
+          title: "Permis de ședere",
+          identifier: "permsed",
+          subservices: [
+            "Obținerea Permisului de ședere Ro",
+            "Prelungirea Permisului de ședere Ro",
+          ]
+        },
+        {
+          title: "Permis de muncă",
+          identifier: "permmun",
+          subservices: [
+          ]
+        },
+        {
+          title: "Permis de Conducere",
+          identifier: "permcon",
+          subservices: [
+            "Schimbul Permisului de Conducere Ro",
+            "Prelungirea validității Permisului de Conducere Ro",
+            "Restabilirea Permisului de Conducere Ro",
+          ]
+        },
+        {
+          title: "Obținerea alte acte/ certificate Ro",
+          identifier: "obtact",
+          subservices: [
+            "Certificat de cazier judiciar",
+          ]
+        },
+        {
+          title: "Alte Servicii",
+          identifier: "other",
+          subservices: [
+            "Apostilare Documente",
+            "Traducere Documente",
+            "Transport",
+          ]
+        },
+      ]
     }),
     methods: {
+      closeMenu() {
+        this.services = false
+        this.drawer = false
+      },
       closeServices() {
         this.services = false
-        this.drawer = true
       },
       openServices() {
         this.services = true
-        this.drawer = true
       },
-      testFunction() {
-        console.log("ddd")
-        this.drawer = true
+      closeSubservices() {
+        this.subservices = false
+      },
+      openSubservices(id) {
+        const arr = this.servicesItems.find(x => x.identifier === id);
+        this.subserviceIdentifier = arr.subservices;
+        this.subservices = true
       }
     }
   }
