@@ -46,7 +46,8 @@
                   
                   <v-btn
                     class="ma-2 btn-yell"
-                    x-large
+                    medium
+                    max-width="330"
                     color="secondary"
                     @click="$nuxt.$emit('open-appointment-form')"
                   > 
@@ -61,88 +62,8 @@
         </v-parallax>
 
       </div>
-      <section class="services">
-        <v-container>
-          <v-row>
-            <v-col cols="12">
-              <div class="display-1 text-center c-title">
-                Servicii
-              </div>
-            </v-col>
-            <v-col 
-              v-for="(item, i) in servicesSection"
-              :key="i"
-              class="col-lg-4 col-md-6 col-12 d-flex child-flex"
-              
-              >
-              <v-card>
-                <v-img
-                  :src="item.src"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                >
-                </v-img>
-                <v-card-title class="title">
-                  {{item.title}}
-                </v-card-title>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
-      <section class="experts">
-        <v-container>
-          <v-row>
-            <v-col cols="12">
-              <div class="display-1 text-center c-title">
-                Discută live cu experții noștri
-              </div>
-              <p class="text-center text">
-                Suntem mândri că am reușit să formăm o echipă de frunte printre prestatorii de top ai serviciilor juridice. O echipă cu care putem mereu onora misiunea pe care ne-am asumat-o.
-              </p>
-            </v-col>
-            <v-col 
-              v-for="(item, i) in experts"
-              :key="i"
-              class="col-lg-4 col-md-6 col-12 d-flex child-flex"
-              
-              >
-              <v-card>
-                <v-img
-                  :src="item.src"
-                  aspect-ratio="1"
-                  class="grey lighten-2"
-                >
-                </v-img>
-                <v-card-title class="title justify-center">
-                  {{item.name}}
-                </v-card-title>
-                <v-card-subtitle class="text-center">
-                  {{item.role}}
-                </v-card-subtitle>
-                <v-card-actions
-                  class="pb-5 justify-center"
-                >
-                  <v-btn
-                    color="secondary"
-                  >
-                    <v-icon left>mdi-phone</v-icon>
-                    Sună
-                  </v-btn>
-
-                  <v-btn
-                    color="info"
-                  >
-                    <v-icon left>mdi-chat</v-icon>
-                    Chat
-                  </v-btn>
-                  
-                </v-card-actions>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
+      <services></services>
+      <experts></experts>
       <div class="callNow">
         <v-parallax height="200" src="call-now-bg.png">
           <v-container>
@@ -157,7 +78,7 @@
                   
                   <v-btn
                     class="ma-2 btn-yell"
-                    x-large
+                    medium
                     color="secondary"
                     @click="$nuxt.$emit('open-appointment-form')"
                   > 
@@ -193,11 +114,15 @@
 <script>
 import Testimonial from "@/components/sliders/testimonial"
 import MapContact from "@/components/mapContact.vue"
+import Experts from "@/components/blocs/experts.vue"
+import Services from '@/components/blocs/services.vue'
 export default {
   layout: "default",
   components: {
     Testimonial,
-    MapContact
+    MapContact,
+    Experts,
+    Services
   },
   data: () => ({
     items: [
@@ -216,49 +141,6 @@ export default {
       {
         src: 'banner.jpg',
         text: 'Programări online'
-      },
-    ],
-    servicesSection: [
-      {
-        title: "Cetațenia română",
-        src: "cetro.png"
-      },
-      {
-        title: "Permis de ședere",
-        src: "permsed.png"
-      },
-      {
-        title: "Permis de muncă",
-        src: "work.png"
-      },
-      {
-        title: "Permis de Conducere",
-        src: "permcond.png"
-      },
-      {
-        title: "Obținerea alte acte/ certificate Ro",
-        src: "lavoro.png"
-      },
-      {
-        title: "Alte Servicii",
-        src: "other.png"
-      },
-    ],
-    experts: [
-      {
-        name: "Lilia Balan",
-        role: "Jurist",
-        src: "https://image.tmdb.org/t/p/original/hs2xlX7jAgY0dib1RPmjMjqVLMC.jpg"
-      },
-      {
-        name: "Ion Neaga",
-        role: "Jurist",
-        src: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-      },
-      {
-        name: "Andrei Mancu",
-        role: "Jurist",
-        src: "https://monkey47.com/thumbs/species-rara/mark-braun/mark-braun-500x750-q75.jpg"
       },
     ],
     
@@ -319,6 +201,11 @@ export default {
   section {
     padding: 50px 0;
   }
+
+  main {
+    padding-bottom: 50px;
+    padding-top: 56px;
+  }
   @media (min-width: 767px) {
     .banner {
       
@@ -326,6 +213,12 @@ export default {
       .v-carousel__item {
         min-height: 80vh;
       }
+    }
+  }
+
+  @media (min-width: 992px) {
+    main {
+      padding-top: 118px;
     }
   }
 </style>

@@ -67,9 +67,6 @@
 
 <script>
 
-
-  
-
   export default {
     name: "AppointmentForm",
     components: {
