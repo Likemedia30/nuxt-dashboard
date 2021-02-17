@@ -1,6 +1,6 @@
 <template>
-  <v-card class="elevation-0">
-    <v-toolbar text dense color="transparent">
+  <v-card class="elevation-2">
+    <v-toolbar class="elevation-2" text color="transparent">
       <v-toolbar-title><h4>Notification</h4></v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>

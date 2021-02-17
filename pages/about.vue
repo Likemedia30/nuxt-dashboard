@@ -95,17 +95,15 @@ export default {
   }
 
   .about-content {
-      .subheading {
-    color: $custom_red !important
-  }
+    .subheading {
+      color: $custom_red !important
+    }
 
     .v-parallax {
-    height: 60vh !important;
-  }
+      height: 60vh !important;
+    }
 
   }
-
-
 
   section {
     padding: 50px 0;

@@ -10,7 +10,7 @@
       solo-inverted
       prepend-icon="mdi-magnify"
       label="Search"
-      class="hidden-sm-and-down"
+      class="hidden-sm-and-down ml-4"
     >
     </v-text-field>
     <v-spacer></v-spacer>
@@ -115,10 +115,19 @@
   };
 </script>
 
-<style scoped>
-  .v-app-bar {
-    width: calc(100vw - 260px) !important;
-    right: 0 !important;
-    left: auto !important;
+<style lang="scss" scoped>
+  
+  @media (min-width: 991px) {
+    .v-app-bar {
+      width: calc(100vw - 260px) !important;
+      right: 0 !important;
+      left: auto !important;
+    }
+    .v-toolbar__content .v-input {
+      height: 50px;
+    }
+    .v-app-bar-nav-icon {
+      display: none;
+    }
   }
 </style>

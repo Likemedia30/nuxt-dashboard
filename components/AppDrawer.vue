@@ -21,7 +21,7 @@
                         no-action="no-action">
             <v-list-item slot="activator" ripple="ripple">
               <v-list-item-content>
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <v-list-item-title>{{ item.title }} </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <template v-for="(subItem, i) in item.items">
@@ -124,11 +124,13 @@
 
 
 <style lang="scss">
-  #appDrawer {
+  @media (min-width: 991px) {
+    #appDrawer {
     overflow: hidden;
     .drawer-menu--scroll {
       height: calc(100vh - 48px);
       overflow: auto;
     }
+  }
   }
 </style>

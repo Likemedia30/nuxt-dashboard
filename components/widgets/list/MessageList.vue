@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar text dense color="transparent">
+    <v-toolbar class="elevation-2" text color="transparent">
       <v-toolbar-title><h4>Message</h4></v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>

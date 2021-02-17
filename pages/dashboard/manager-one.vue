@@ -3,10 +3,10 @@
     <v-flex lg3 v-for="(item,index) in users" :key=" 'basic' + index">
       <v-card>
         <name-card v-bind="item">
-          </name-card>
-          <v-card-actions>
-            <v-switch :label="s1 ? 'Online': 'Offline'" v-model="s1"></v-switch>
-          </v-card-actions>
+        </name-card>
+        <v-card-actions>
+          <v-switch :label="s1 ? 'Online': 'Offline'" v-model="s1"></v-switch>
+        </v-card-actions>
       </v-card>
     </v-flex>
     <v-layout row wrap>
