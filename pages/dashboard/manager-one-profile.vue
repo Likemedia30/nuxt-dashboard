@@ -288,41 +288,25 @@
                 required
               ></v-text-field>
             </div>
-            
-            <div class="col-12">
-              <v-btn color="secondary" class="mt-4">
-                Save Work Info
-              </v-btn>
+            <div class="col-md-6 col-12">
+              <v-select
+                :items="roles"
+                label="Roles"
+              ></v-select>
             </div>
-          </v-form>
-        </v-card-text>
-        <v-divider class="my-4"></v-divider>
-        <v-card-text>
-          <v-form class="row">
             <div class="col-md-6 col-12">
               <v-select
                 :items="langs"
                 label="Language"
               ></v-select>
             </div>
-            <div class="col-md-6 col-12">
-              <v-select
-                :items="currency"
-                label="Currency"
-              ></v-select>
-            </div>
-            <div class="col-md-6 col-12">
-              <v-select
-                :items="paymentMethods"
-                label="Payment Methods"
-              ></v-select>
-            </div>
             <div class="col-12">
               <v-btn color="secondary" class="mt-4">
-                Save Preferrence
+                Save Work Info
               </v-btn>
             </div>
           </v-form>
+          
         </v-card-text>
         <v-divider class="my-4"></v-divider>
         <v-card-title class="d-flex justify-center">
@@ -364,15 +348,10 @@
           "RU",
           "EN"
         ],
-        currency: [
-          "MDL",
-          "EURO",
-          "RON"
-        ],
-        paymentMethods: [
-          "Card",
-          "Paypal",
-          "Cod"
+        roles: [
+          "Client",
+          "Manager",
+          "PM"
         ],
         social: [
           "facebook-messenger",
