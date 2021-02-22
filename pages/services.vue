@@ -14,7 +14,7 @@
               class="col-lg-4 col-md-6 col-12 d-flex child-flex"
               
               >
-              <v-card>
+              <v-card exact nuxt to="/expert-one">
                 <v-img
                   :src="item.src"
                   aspect-ratio="1"

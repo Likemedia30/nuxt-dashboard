@@ -10,9 +10,16 @@
             <div class="col">
               <nuxt />
             </div>
+            <div class="col-12">
+              <support />
+            </div>
+            <div class="col-12">
+              <count />
+            </div>
           </div>
         </div>
       </main>
+    <Footer />
   </v-app>
 </template>
 
@@ -20,11 +27,18 @@
 <script>
 import NavComponent from '@/components/navs/navbar';
 import NavCabinet from '@/components/navs/nav-cabinet';
+import Support from '@/components/blocs/support';
+import Count from '@/components/blocs/count';
+import Footer from '@/components/navs/Footer'
+
 export default {
   name: "cabinet-loyout",
   components: {
     NavComponent,
-    NavCabinet
+    NavCabinet,
+    Support,
+    Count,
+    Footer
   }
 }
 </script>

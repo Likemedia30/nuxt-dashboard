@@ -43,7 +43,7 @@
                 <v-icon >mdi-chevron-right</v-icon>
               </v-list-item-icon>
             </v-list-item>
-            <v-list-item color="primary">
+            <v-list-item color="primary" exact nuxt to="/cabinet/orders">
               <v-list-item-icon>
                 <v-icon color="primary">mdi-cash</v-icon>
               </v-list-item-icon>
@@ -54,7 +54,7 @@
                 <v-icon >mdi-chevron-right</v-icon>
               </v-list-item-icon>
             </v-list-item>
-            <v-list-item color="primary">
+            <v-list-item color="primary" exact nuxt to="/cabinet/invoices">
               <v-list-item-icon>
                 <v-icon color="primary">mdi-receipt</v-icon>
               </v-list-item-icon>
@@ -65,7 +65,7 @@
                 <v-icon >mdi-chevron-right</v-icon>
               </v-list-item-icon>
             </v-list-item>
-            <v-list-item color="primary">
+            <v-list-item color="primary" exact nuxt to="/faq">
               <v-list-item-icon>
                 <v-icon color="primary">mdi-help-box</v-icon>
               </v-list-item-icon>

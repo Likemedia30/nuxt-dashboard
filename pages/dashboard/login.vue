@@ -7,13 +7,13 @@
             <h5 class="text-center">Sign in with</h5>
           </div>
           <div class="col-auto">
-            <v-btn  color="primary">
+            <v-btn small color="primary">
               <v-icon>mdi-google</v-icon>
               Google
             </v-btn>
           </div>
           <div class="col-auto">
-            <v-btn color="primary">
+            <v-btn small color="primary">
               <v-icon>mdi-facebook</v-icon>
               Facebook
             </v-btn>
@@ -102,7 +102,6 @@
       justify-content: space-between;
       color: #ffff;
       background-color: transparent;
-      width: 360px;
       margin-top: 10px;
 
       a {
@@ -126,11 +125,26 @@
     .v-card {
       background-color: #ffff;
       border-radius: 3px;
-      padding: 30px;
-      width: 360px;
+      padding: 15px;
+      width: 100%;
 
       h5 {
         text-align: center;
+      }
+    }
+  }
+
+  @media (min-width: 430px) {
+    .auth {
+      &__inner {
+        padding: 0 15px;
+      }
+      &__other {
+        width: 400px;
+      }
+      .v-card {
+        width: 400px;
+        padding: 30px;
       }
     }
   }
