@@ -643,7 +643,7 @@
   }
   @media (min-width: 991px) {
     .customBar.mobile,
-    .v-bottom-navigation {
+    .customBar .v-bottom-navigation {
       display: none !important;
     }
     .customBar.desktop {
