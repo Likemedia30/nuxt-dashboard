@@ -109,7 +109,7 @@
         </v-sheet>
         <v-list nav light>
           <v-list-item-group>
-            <v-list-item v-for="(service, i) in subserviceIdentifier" :key="i">
+            <v-list-item @click="closeMenu" v-for="(service, i) in subserviceIdentifier" :key="i">
               <v-list-item-title v-text="service"></v-list-item-title>
             </v-list-item>
           </v-list-item-group>
@@ -572,6 +572,7 @@
       closeMenu() {
         this.services = false
         this.drawer = false
+        this.subservices = false
       },
       closeServices() {
         this.services = false
