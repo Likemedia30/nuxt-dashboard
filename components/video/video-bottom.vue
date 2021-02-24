@@ -84,7 +84,7 @@
             <v-list-item-title>
               <v-checkbox
               dark
-              v-model="renameNicname"
+              v-model="renameNickname"
               label="Rename nickname"
               value="renameNicname"
               hide-details
@@ -100,7 +100,7 @@
         <v-icon>mdi-account-multiple</v-icon>
       </v-btn>
 
-      <v-btn>
+      <v-btn @click="$nuxt.$emit('openChat')">
         <span>Chat</span>
         <v-icon>mdi-chat</v-icon>
       </v-btn>
@@ -134,7 +134,8 @@ export default {
     renameNickname: false,
     waitingRoom: false,
     shareScreen: true,
-    chat: true
+    chat: true,
+    
   }),
 }
 </script>
@@ -146,7 +147,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between !important;
-      // background: rgb(34, 34, 34) !important;
+      background-color: #1E1E1E !important;
     }
 
     .v-sheet {
@@ -165,6 +166,12 @@ export default {
     }
   }
   .securityMenu {
+    .v-input--selection-controls__input:hover {
+
+      .v-input--selection-controls__ripple {
+        display: none;
+      }
+    }
     .mdi-checkbox-marked::before {
       content: "\F012C" !important;
     }
