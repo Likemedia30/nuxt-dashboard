@@ -1,8 +1,14 @@
 <template>
   <div class="chatdrawer">
     <v-card width="360" height="100%">
-      <v-card-title dense class="text-center">
+      <v-card-title dense class="text-center d-flex justify-space-between">
+        <v-btn text color="primary" small @click="$nuxt.$emit('openChat')">Close</v-btn>
         Chat
+        <v-btn color="primary" text small>
+          <v-icon>
+            mdi-bell
+          </v-icon>
+        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-list>
